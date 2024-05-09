@@ -4,7 +4,7 @@ document.body.innerHTML = '';
 for (i=0; i<29; i++)
 {
     var para = document.createElement("h1");
-    var node = document.createTextNode("HAHAHAHA YOU ARE BLOCKED NOW GO BACK TO WORK YOU STUPID BLOKE HAHAHAHA YOU ARE BLOCKED NOW GO BACK TO WORK YOU STUPID BLOKE!!!!!!!!!!!!!!!!!!");
+    var node = document.createTextNode("[insert repeating text to scold the user for trying to waste time]");
     para.appendChild(node);
     document.body.appendChild(para);
 }
