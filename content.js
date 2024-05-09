@@ -1,6 +1,7 @@
+//Clears out all functioning HTML from webpage
 document.body.innerHTML = '';
 
-// Append the node to the body
+//Loops multiple times to cover the entire screen with repeating text
 for (i=0; i<29; i++)
 {
     var para = document.createElement("h1");
@@ -9,7 +10,5 @@ for (i=0; i<29; i++)
     document.body.appendChild(para);
 }
 
-// Change the background color of the body to red
+// Changes the background color to red
 document.body.style.backgroundColor = "red";
-
-// Log "sup" to the console
