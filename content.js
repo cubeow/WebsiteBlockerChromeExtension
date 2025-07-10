@@ -1,14 +1,28 @@
-//Clears out all functioning HTML from webpage
-document.body.innerHTML = '';
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+    if (message.action === "runFunction") {
+        console.log("URL matched! Running function...");
+        runYourFunction();
+    }
+});
 
-//Loops multiple times to cover the entire screen with repeating text
-for (i=0; i<29; i++)
-{
-    var para = document.createElement("h1");
-    var node = document.createTextNode("[insert repeating text to scold the user for trying to waste time]");
-    para.appendChild(node);
-    document.body.appendChild(para);
+function runYourFunction() {
+    console.log("Function executed on matching URL!");
+    console.log("New page detected!");
+        document.body.innerHTML = '';
+
+    //Loops multiple times to cover the entire screen with repeating text
+    for (i=0; i<29; i++)
+    {
+        var para = document.createElement("h1");
+        var node = document.createTextNode("YOU FRICKING IDIOT, HOW DARE YOU STOP BEING PRODUCTIVE. YOU KNOW THE RABBIT HOLE YOU ARE GETTING YORUSELF INTO SO GET BACK TO FRICKING WORK IF YOU WANT A FRICKING FUTURE");
+        para.appendChild(node);
+        document.body.appendChild(para);
+    }
+
+    // Changes the background color to red
+    document.body.style.backgroundColor = "red";
 }
 
-// Changes the background color to red
-document.body.style.backgroundColor = "red";
+
+
+

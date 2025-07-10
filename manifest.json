@@ -3,11 +3,16 @@
     "name": "Chrome Extension Website Blocker",
     "description": "Blocks any websites you want",
     "version": "1",
+    "host_permissions": ["<all_urls>"],
     "permissions": [
-        "tabs"
+        "tabs",
+        "scripting"
       ],
+    "background": {
+    "service_worker": "background.js"
+  },
     "content_scripts":[{
         "js": ["content.js"],
-        "matches": ["*://www.youtube.com/*", "*://www.reddit.com/*", "*://www.tiktok.com/*", "*://www.facebook.com/*", "*://twitter.com/*", "*://www.roblox.com/*", "*://www.instagram.com/*", "*://www.pinterest.com/*", "*://www.snapchat.com/*", "*://discord.com/*", "*://www.twitch.tv/*", "*://www.quora.com/*", "*://zombs.io/*", "*://agar.io/*", "*://zombsroyale.io/*", "*://moomoo.io/*", "*://wings.io/*", "*://brutal.io/*"]
+        "matches": ["<all_urls>"]
     }]
 }
