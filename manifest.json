@@ -5,6 +5,7 @@
     "version": "1",
     "host_permissions": ["<all_urls>"],
     "permissions": [
+        "webNavigation",
         "tabs",
         "scripting"
       ],

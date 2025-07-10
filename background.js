@@ -38,3 +38,18 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
         }
     }
 });
+chrome.webNavigation.onCommitted.addListener((details) => {
+    if (["reload", "link", "typed", "generated"].includes(details.transitionType)) {
+        console.log("Navigated to:", details.url);
+        console.log(matchesPattern(details.url));
+        if (matchesPattern(details.url)) {
+            chrome.scripting.executeScript({
+                target: { tabId: details.tabId },
+                files: ["content.js"]
+            }).then(() => {
+                chrome.tabs.sendMessage(details.tabId, { action: "runFunction" })
+                    .catch(err => console.warn("Content script not available:", err));
+            }).catch(err => console.warn("Failed to inject content script:", err));
+        }
+    }
+});
